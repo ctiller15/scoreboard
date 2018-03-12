@@ -7,68 +7,80 @@
     <link rel="stylesheet" href="./screen.css">
   </head>
   <body>
-    <h1>Soccer Scoreboard</h1>
 
-    <section class="teams">
-      <section class="team1-display">
-        <h2 class="team1-name">Team 1</h2>
-        <p class="team1-score">0</p>
+    <section class="period">
+      <!-- Soccer has two 45-minute halves! -->
+      <h1>Currently on the the the first half</h1>
+      <section class="gameScore">
+
       </section>
-      <section class="team2-display">
-        <h2 class="team2-name">Team 2</h2>
-        <p class="team2-score">0</p>
-      </section>
+      <button class="switch">Move to the second half!</button>
     </section>
 
-    <section class="scoring-section">
-      <section class="team1-section">
+    <section class="main">
+      <h1>Soccer Scoreboard</h1>
 
-        <section class="team1-name-update">
-          <p>Update Team 1 Name</p>
-          <form class="team-1-update-form-name">
-
-            <input class="new-team1-name" type="text">
-            <button class="team1-update-button">
-              Update
-            </button>
-
-          </form>
+      <section class="teams">
+        <section class="team1-display">
+          <h2 class="team1-name">Team 1</h2>
+          <p class="team1-score">0</p>
         </section>
-
-        <section class="team-1-score-update">
-          <p>Update Team 1 Score</p>
-          <form class="team-1-update-form-score">
-            <button class="add-team-1">Add 1</button>
-            <button class="subtract-team-1">Subtract 1</button>
-          </form>
+        <section class="team2-display">
+          <h2 class="team2-name">Team 2</h2>
+          <p class="team2-score">0</p>
         </section>
-
       </section>
-
-      <section class="team2-section">
-
-        <section class="team2-name-update">
-          <p>Update Team 2 Name</p>
-          <form class="team-2-update-form-name">
-
-            <input class="new-team2-name" type="text">
-            <button class="team2-update-button">
-              Update
-            </button>
-
-          </form>
+  
+      <section class="scoring-section">
+        <section class="team1-section">
+  
+          <section class="team1-name-update">
+            <p>Update Team 1 Name</p>
+            <form class="team-1-update-form-name">
+  
+              <input class="new-team1-name" type="text">
+              <button class="team1-update-button">
+                Update
+              </button>
+  
+            </form>
+          </section>
+  
+          <section class="team-1-score-update">
+            <p>Update Team 1 Score</p>
+            <form class="team-1-update-form-score">
+              <button class="add-team-1">Add 1</button>
+              <button class="subtract-team-1">Subtract 1</button>
+            </form>
+          </section>
+  
         </section>
-
-        <section class="team-2-score-update">
-          <p>Update Team 2 Score</p>
-          <form class="team-2-update-form-score">
-            <button class="add-team-2">Add 1</button>
-            <button class="subtract-team-2">Subtract 1</button>
-          </form>
+  
+        <section class="team2-section">
+  
+          <section class="team2-name-update">
+            <p>Update Team 2 Name</p>
+            <form class="team-2-update-form-name">
+  
+              <input class="new-team2-name" type="text">
+              <button class="team2-update-button">
+                Update
+              </button>
+  
+            </form>
+          </section>
+  
+          <section class="team-2-score-update">
+            <p>Update Team 2 Score</p>
+            <form class="team-2-update-form-score">
+              <button class="add-team-2">Add 1</button>
+              <button class="subtract-team-2">Subtract 1</button>
+            </form>
+          </section>
+  
         </section>
-
+  
       </section>
-
     </section>
 
     <script src="./main.js" charset="utf-8"></script>

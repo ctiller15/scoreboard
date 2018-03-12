@@ -7,7 +7,18 @@ body {
   min-height: 100%;
   font: 16px / 1 sans-serif;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.period {
+  width: 30%;
+}
+
+.main {
+  display: flex;
   flex-direction: column;
+  width: 60%;
 }
 
 h1 {

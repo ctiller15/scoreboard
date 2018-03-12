@@ -7,6 +7,9 @@ const main = () => {
   let teamOneName = "Team 1";
   let teamTwoName = "Team 2";
 
+  let gameScoreHTML = "";
+  let half = 1;
+
   // Selecting the score and name elements.
   let teamOneScoreDisplay = document.querySelector('.team1-score');
   let teamTwoScoreDisplay = document.querySelector('.team2-score');
@@ -21,16 +24,45 @@ const main = () => {
   teamOneNameUpdate = document.querySelector('.team1-update-button');
   teamTwoNameUpdate = document.querySelector('.team2-update-button');
 
+  // Selecting the button that switches the half
+  gameAdvance = document.querySelector('.switch');
+
+  //Selecting the section that contains the score information.
+  gameScoreFullDisplay = document.querySelector('.gameScore');
+
+  // Advancing the game.
+
+  gameAdvance.addEventListener('click', (e) => {
+    // Log the scores.
+    console.log(`${teamOneName}: ${teamOneScore}, ${teamTwoName}: ${teamTwoScore}`);
+    gameScoreHTML += `<section class="half${1}">
+                      <p>${teamOneName} score: ${teamOneScore}</p>
+                      <p>${teamTwoName} score: ${teamTwoScore}</p>
+                      </section>`;
+    
+                      console.log(gameScoreHTML);
+    // Store the scores to the side, on the screen.
+    gameScoreFullDisplay.innerHTML = gameScoreHTML;
+    // Reset the scores.
+  });
+
+  // Changing the teamOneName whenever the currentName changes.
+  currentNameUpdateOne.addEventListener('input', (e) => {
+    teamOneName = currentNameUpdateOne.value;
+  });
+
+  currentNameUpdateTwo.addEventListener('input', (e) => {
+    teamTwoName = currentNameUpdateTwo.value;
+  });
+
   teamOneNameUpdate.addEventListener('click', (e) => {
     e.preventDefault();
-    teamOneNameDisplay.textContent = currentNameUpdateOne.value;
-    console.log(currentNameUpdateOne.value);
+    teamOneNameDisplay.textContent = teamOneName;
   });
 
   teamTwoNameUpdate.addEventListener('click', (e) => {
     e.preventDefault();
-    teamTwoNameDisplay.textContent = currentNameUpdateTwo.value;
-    console.log(currentNameUpdateTwo.value);
+    teamTwoNameDisplay.textContent = teamTwoName;
   });
 
   // Selecting the score buttons and adding event listeners
@@ -38,28 +70,24 @@ const main = () => {
     e.preventDefault();
     teamOneScore++;
     teamOneScoreDisplay.textContent = teamOneScore;
-    console.log(`Current score: ${teamOneScore}`);
   });
 
   document.querySelector('.subtract-team-1').addEventListener('click', (e) => {
     e.preventDefault();
     teamOneScore--;
     teamOneScoreDisplay.textContent = teamOneScore;
-    console.log(`Current score: ${teamOneScore}`);
   });
 
   document.querySelector('.add-team-2').addEventListener('click', (e) => {
     e.preventDefault();
     teamTwoScore++;
     teamTwoScoreDisplay.textContent = teamTwoScore;
-    console.log(`Current score: ${teamTwoScore}`);
   });
 
   document.querySelector('.subtract-team-2').addEventListener('click', (e) => {
     e.preventDefault();
     teamTwoScore--;
     teamTwoScoreDisplay.textContent = teamTwoScore;
-    console.log(`Current score: ${teamTwoScore}`);
   });
 
 }
