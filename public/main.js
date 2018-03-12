@@ -40,10 +40,15 @@ const main = () => {
                       <p>${teamTwoName} score: ${teamTwoScore}</p>
                       </section>`;
     
-                      console.log(gameScoreHTML);
+    console.log(gameScoreHTML);
     // Store the scores to the side, on the screen.
     gameScoreFullDisplay.innerHTML = gameScoreHTML;
     // Reset the scores.
+    teamOneScore = 0;
+    teamTwoScore = 0;
+    // Increase the quarter/half count.
+    half++;
+
   });
 
   // Changing the teamOneName whenever the currentName changes.

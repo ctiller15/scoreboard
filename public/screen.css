@@ -7,18 +7,29 @@ body {
   min-height: 100%;
   font: 16px / 1 sans-serif;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+  background: url("./assets/images/Soccer_Field.jpg") no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 4px;
 }
 
 .period {
-  width: 30%;
+  /* width: 30%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gameScore p {
+  font-size: 1.5em;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  align-items: center;
 }
 
 h1 {
@@ -30,7 +41,63 @@ h1 {
   justify-content: space-around;
 }
 
+.teams h2 {
+  font-size: 3em;
+}
+
+.teams p {
+  font-size: 3em;
+  text-align: center;
+}
+
 .scoring-section {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+}
+
+.scoring-section input {
+  border-radius: 5px;
+  border-style: none;
+  /* font-size: 2em; */
+  padding: 8px;
+}
+
+.scoring-section p {
+  font-size: 2em;
+}
+
+button {
+  height: 48px;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 1366px) {
+
+  body {
+    flex-direction: row;
+  }
+
+  .period {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main {
+    width: 60%;
+    align-items: stretch;
+    border-left: 5px dashed green;
+  }
+
+  .scoring-section {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .scoring-section input {
+    font-size: 2em;
+  }
 }
