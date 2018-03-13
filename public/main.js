@@ -1,5 +1,19 @@
 const main = () => {
-  // document.querySelector('h1').textContent += '?';
+
+  let scores = {
+    team1: [],
+    team2: []
+  };
+
+  let storage = localStorage;
+
+  scores.team1.push(localStorage.getItem("h1T1"));
+  scores.team2.push(localStorage.getItem("h1T2"));
+  scores.team1.push(localStorage.getItem("h2T1"));
+  scores.team2.push(localStorage.getItem("h2T2"));
+
+  console.log(scores);
+
   // Initialize the current scores.
   let teamOneScore = 0;
   let teamTwoScore = 0;
@@ -30,24 +44,68 @@ const main = () => {
   //Selecting the section that contains the score information.
   gameScoreFullDisplay = document.querySelector('.gameScore');
 
-  // Advancing the game.
+  // Selecting the timer.
+  timer = document.querySelector(".timer");
 
-  gameAdvance.addEventListener('click', (e) => {
-    // Log the scores.
-    console.log(`${teamOneName}: ${teamOneScore}, ${teamTwoName}: ${teamTwoScore}`);
-    gameScoreHTML += `<section class="half${1}">
-                      <p>${teamOneName} score: ${teamOneScore}</p>
-                      <p>${teamTwoName} score: ${teamTwoScore}</p>
-                      </section>`;
-    
-    console.log(gameScoreHTML);
+  let switchHalves = () => {
+    if(half < 2) {
+      gameScoreHTML += `<section class="half${1}">
+        <p>${teamOneName} score: ${teamOneScore}</p>
+        <p>${teamTwoName} score: ${teamTwoScore}</p>
+        </section>`;
+        gameTime = 60 * 45;
+        localStorage.setItem("h1T1", teamOneScore);
+        localStorage.setItem("h1T2", teamTwoScore);
+    } else if (half === 2){
+      gameScoreHTML += `<section class="half${1}">
+        <p>${teamOneName} score: ${teamOneScore}</p>
+        <p>${teamTwoName} score: ${teamTwoScore}</p>
+        </section>
+        <p>Game over!</p>`;
+        gameTime = 1;
+        localStorage.setItem("h2T1", teamOneScore);
+        localStorage.setItem("h2T2", teamTwoScore);
+    }
     // Store the scores to the side, on the screen.
     gameScoreFullDisplay.innerHTML = gameScoreHTML;
     // Reset the scores.
     teamOneScore = 0;
     teamTwoScore = 0;
     // Increase the quarter/half count.
-    half++;
+    half++;    
+  }
+
+  // initialize the interval, and the timer.
+  let gameTime = 60 * 45;
+
+  let interval = setInterval(() => {
+    console.log(`${gameTime}`);
+    gameTime--;
+    let minutes = Math.floor(gameTime / 60);
+    minutes < 10 ? minutes += "0" : minutes;
+    let seconds = Math.floor(gameTime % 60);
+    seconds < 10 ? seconds += "0" : seconds;
+    timer.textContent = `${minutes} : ${seconds}`;
+    if(gameTime <= 0) {
+      switchHalves();
+      // If we haven't hit the second half, reset the game time.
+      if(half <= 2) {
+        gameTime = 60 * 45;
+      } else {
+        clearInterval(interval);
+      }
+    }
+  }, 1000);
+
+  // Advancing the game.
+
+  gameAdvance.addEventListener('click', (e) => {
+    // Log the scores.
+    console.log(`${teamOneName}: ${teamOneScore}, ${teamTwoName}: ${teamTwoScore}`);
+    switchHalves();
+    
+    console.log(gameScoreHTML);
+
 
   });
 

@@ -22,6 +22,10 @@ body {
   align-items: center;
 }
 
+.timer {
+  font-size: 2em;
+}
+
 .gameScore p {
   font-size: 1.5em;
 }
