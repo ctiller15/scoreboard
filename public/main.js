@@ -1,3 +1,5 @@
+// Not very DRY, buuuuuut I'll deal with it for right now.
+
 const main = () => {
 
   let scores = {
