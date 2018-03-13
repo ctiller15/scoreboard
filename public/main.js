@@ -82,9 +82,9 @@ const main = () => {
     console.log(`${gameTime}`);
     gameTime--;
     let minutes = Math.floor(gameTime / 60);
-    minutes < 10 ? minutes += "0" : minutes;
+    minutes < 10 ? minutes = "0" + minutes : minutes;
     let seconds = Math.floor(gameTime % 60);
-    seconds < 10 ? seconds += "0" : seconds;
+    seconds < 10 ? seconds = "0" + seconds : seconds;
     timer.textContent = `${minutes} : ${seconds}`;
     if(gameTime <= 0) {
       switchHalves();
