@@ -1,5 +1,14 @@
 // Not very DRY, buuuuuut I'll deal with it for right now.
 
+class team {
+  constructor() {
+    this.score = 0;
+    this.Name = "";
+    this.scoreDisplay;
+    this.nameDisplay;
+  }
+}
+
 const main = () => {
 
   let scores = {
@@ -133,28 +142,42 @@ const main = () => {
   // Selecting the score buttons and adding event listeners
   document.querySelector('.add-team-1').addEventListener('click', (e) => {
     e.preventDefault();
-    teamOneScore++;
-    teamOneScoreDisplay.textContent = teamOneScore;
+    // teamOneScore++;
+    // teamOneScoreDisplay.textContent = teamOneScore;
+    teamOneScore = incrementAndDisplay(teamOneScore, teamOneScoreDisplay, "+");
   });
 
   document.querySelector('.subtract-team-1').addEventListener('click', (e) => {
     e.preventDefault();
-    teamOneScore--;
-    teamOneScoreDisplay.textContent = teamOneScore;
+    // teamOneScore--;
+    // teamOneScoreDisplay.textContent = teamOneScore;
+    teamOneScore = incrementAndDisplay(teamOneScore, teamOneScoreDisplay, "-");
   });
 
   document.querySelector('.add-team-2').addEventListener('click', (e) => {
     e.preventDefault();
-    teamTwoScore++;
-    teamTwoScoreDisplay.textContent = teamTwoScore;
+    // teamTwoScore++;
+    // teamTwoScoreDisplay.textContent = teamTwoScore;
+    teamTwoScore = incrementAndDisplay(teamTwoScore, teamTwoScoreDisplay, "+");
   });
 
   document.querySelector('.subtract-team-2').addEventListener('click', (e) => {
     e.preventDefault();
-    teamTwoScore--;
-    teamTwoScoreDisplay.textContent = teamTwoScore;
+    // teamTwoScore--;
+    // teamTwoScoreDisplay.textContent = teamTwoScore;
+    teamTwoScore = incrementAndDisplay(teamTwoScore, teamTwoScoreDisplay, "-");
   });
 
+}
+
+const createAddSubButtons = (teamNum) => {
+
+}
+
+const incrementAndDisplay = (teamScore, teamScoreDisplay, op) => {
+  teamScore = op === "-" ? teamScore - 1 : teamScore + 1;
+  teamScoreDisplay.textContent = teamScore;
+  return teamScore;
 }
 
 document.addEventListener('DOMContentLoaded', main);
